@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-10T08:47:12.690Z</updated>
+  <updated>2019-11-10T09:05:43.767Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mysql第五课</title>
+    <link href="http://yoursite.com/2019/11/10/Mysql%E7%AC%AC%E4%BA%94%E8%AF%BE/"/>
+    <id>http://yoursite.com/2019/11/10/Mysql第五课/</id>
+    <published>2019-11-10T09:04:36.000Z</published>
+    <updated>2019-11-10T09:05:43.767Z</updated>
+    
+    <content type="html"><![CDATA[<p>#MySQL第五次课<br>    数据库的优化与实务<br>    数据库优化的作用<br>        通过优化提高查询效率<br>    如何优化：<br>        其中一项内容就是添加索引<br>        索引于为表中某个字段或某几个字段添加一个目录<br>    索引的分类<br>        普通索引<br>        唯一索引<br>            添加唯一约束会默认谈价唯一索引<br>        主键索引<br>            添加主键约束会默认添加主键索引<br>        组合索引<br>        全文索引<br>        空间索引<br>    注意：索引不是越多越好，经常用来查询的字段作为索引</p><pre><code>事务    几条语句组成一个整体，要么全部成功，要么全部失败，这几条语句放到一块就称为一个事务    其实每条语句都是一个自动提交的事务    1.关闭自动提交    2.开启事务 begin    3.执行语句 如果失败全部回滚 rollback    4.如果全部成功,提交事务commit事务的特性    原子性    事务是一个整体,要么全部成功要么全部失败    一致性    事务执行前后,数据的状态应该是一致的    隔离性    事务相互独立,互不相影响    永久性    事务一旦对数据进行更改造成的影响是永久的隔离级别    未提交读(read uncommitted)    已提交读(read committed)    可重复读(repeatable read)    可串行化(seriarizable)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#MySQL第五次课&lt;br&gt;    数据库的优化与实务&lt;br&gt;    数据库优化的作用&lt;br&gt;        通过优化提高查询效率&lt;br&gt;    如何优化：&lt;br&gt;        其中一项内容就是添加索引&lt;br&gt;        索引于为表中某个字段或某几个字段添加一个目录&lt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql第四课</title>
+    <link href="http://yoursite.com/2019/11/10/Mysql%E7%AC%AC%E5%9B%9B%E8%AF%BE/"/>
+    <id>http://yoursite.com/2019/11/10/Mysql第四课/</id>
+    <published>2019-11-10T09:04:23.000Z</published>
+    <updated>2019-11-10T09:05:28.991Z</updated>
+    
+    <content type="html"><![CDATA[<p>#Mysql第四次课<br>     truncate清空表<br>     truncate table 表名<br>     is  null 查询字段中为null的数据<br>     is not null 查询出字段中非空的数据<br>     name          name is not null<br>     张三<br>     null<br>     李四<br>     王五<br>     null</p><pre><code> 模糊查询    like    % 代表一个或多个字符    _ 代表一个字符 exists()存在    exists里边括住的是一个  查询语句,如果查询语句有结果，  外部查询就正常执行，如果没结果，  外部查询不执行  not exists */SELECT * FROM course               WHERE cnam IS NOT NULL#模糊查询#查询出姓名中包含“三”#学生的信息SELECT * FROM studentinfo WHERE                  snam LIKE &apos;%三%&apos;;#查询出姓周的同学信息SELECT * FROM studentinfo WHERE                  snam LIKE &apos;周%&apos;;#如果有安阳市的学生，就把#本班所有学生的信息查询#出来SELECT * FROM studentinfo WHERE    EXISTS(      SELECT * FROM studentinfo WHERE               address LIKE &apos;%许昌%&apos;)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#Mysql第四次课&lt;br&gt;     truncate清空表&lt;br&gt;     truncate table 表名&lt;br&gt;     is  null 查询字段中为null的数据&lt;br&gt;     is not null 查询出字段中非空的数据&lt;br&gt;     name     
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql第三课</title>
+    <link href="http://yoursite.com/2019/11/10/Mysql%E7%AC%AC%E4%B8%89%E8%AF%BE/"/>
+    <id>http://yoursite.com/2019/11/10/Mysql第三课/</id>
+    <published>2019-11-10T09:04:05.000Z</published>
+    <updated>2019-11-10T09:05:15.399Z</updated>
+    
+    <content type="html"><![CDATA[<p>#MySQL第三次课<br>        order by 排序<br>        grounp by  分组<br>        group by……having……. 筛选出来符合条件的数据<br>    子查询<br>        查询语句里面嵌套查询语句子查询的结果作为了外部查询的条件<br>    链接        把多张表连接成一张表,一般连接的表有主外键关系<br>        普通链接    必须写连接条件</p><pre><code>内连接inner join...on...inner join连接两张表on后面是连接条件外连接：  左连接left join...on...左边那张表数据全部显示右边那张表只显示匹配上的数据  右连接right join...on...右边那张表数据全部显示左边那张表只显示匹配上的数据全连接</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#MySQL第三次课&lt;br&gt;        order by 排序&lt;br&gt;        grounp by  分组&lt;br&gt;        group by……having……. 筛选出来符合条件的数据&lt;br&gt;    子查询&lt;br&gt;        查询语句里面嵌套查询语句子
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql第二课</title>
+    <link href="http://yoursite.com/2019/11/10/Mysql%E7%AC%AC%E4%BA%8C%E8%AF%BE/"/>
+    <id>http://yoursite.com/2019/11/10/Mysql第二课/</id>
+    <published>2019-11-10T09:03:47.000Z</published>
+    <updated>2019-11-10T09:04:59.861Z</updated>
+    
+    <content type="html"><![CDATA[<p>#MySQL第二次课<br>    MySQL运算符<br>        算数运算符<br>          + - * /<br>        比较运算符<br>          &gt; &lt; &gt;= &lt;= !=<br>        逻辑运算符<br>          and  or<br>    聚合函数<br>        count()    求行数<br>        sum()     求一列的和<br>        avg()    求平均数<br>        max()    求最大值<br>        min()    求最小值<br>    MySQL需要记住的关键字<br>        in        查询….范围里的数据<br>                name in ‘张三’,’李四’;<br>                name等于张三与name等于李四的数据,全部查询出来<br>        not in<br>                name not in ‘张三’,’李四’;<br>                除了name等于张三与name等于李四的数据,全部查询出来<br>        is null<br>        is not null<br>        limit        查询表中的前几行<br>                limit 0,2;   从0下标开始向后查询两行<br>        distinct        去掉每个字段或某几个字段重复的数据<br>        as        给字段取别名<br>        union        查询两张表的并集<br>        between….and…    查询……范围之间的数据</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#MySQL第二次课&lt;br&gt;    MySQL运算符&lt;br&gt;        算数运算符&lt;br&gt;          + - * /&lt;br&gt;        比较运算符&lt;br&gt;          &amp;gt; &amp;lt; &amp;gt;= &amp;lt;= !=&lt;br&gt;        逻辑运算符&lt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Mysql第一课</title>
@@ -30,28 +118,6 @@
       
       
         &lt;p&gt;#MySQL数据库第一课&lt;br&gt;    0.数据库的分类&lt;br&gt;        关系型数据库&lt;br&gt;           SQLserver  MySQL  Oracle&lt;br&gt;        非关系型数据库&lt;br&gt;           Redis&lt;br&gt;    1.什么是
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>test test</title>
-    <link href="http://yoursite.com/2019/10/14/test-test/"/>
-    <id>http://yoursite.com/2019/10/14/test-test/</id>
-    <published>2019-10-14T11:57:05.000Z</published>
-    <updated>2019-10-14T11:59:47.781Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="测试测试测试"><a href="#测试测试测试" class="headerlink" title="测试测试测试"></a>测试测试测试</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;测试测试测试&quot;&gt;&lt;a href=&quot;#测试测试测试&quot; class=&quot;headerlink&quot; title=&quot;测试测试测试&quot;&gt;&lt;/a&gt;测试测试测试&lt;/h1&gt;
       
     
     </summary>

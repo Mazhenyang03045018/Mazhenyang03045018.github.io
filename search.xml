@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>Mysql第一课</title>
-      <link href="/2019/11/10/Mysql%E7%AC%AC%E4%B8%80%E8%AF%BE/"/>
-      <url>/2019/11/10/Mysql%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
+      <title>Mysql第五课</title>
+      <link href="/2019/11/10/Mysql%E7%AC%AC%E4%BA%94%E8%AF%BE/"/>
+      <url>/2019/11/10/Mysql%E7%AC%AC%E4%BA%94%E8%AF%BE/</url>
       
-        <content type="html"><![CDATA[<p>#MySQL数据库第一课<br>    0.数据库的分类<br>        关系型数据库<br>           SQLserver  MySQL  Oracle<br>        非关系型数据库<br>           Redis<br>    1.什么是数据库<br>    用来存储数据的仓库，数据库由一张一张的表组成，真正存储数据的地方为表<br>    2.什么是表<br>    表由行和列组成<br>    行在数据库里称为纪录<br>    列称为字段或属性<br>    例如：学生表，表里应该有学生的学号，姓名，身份证号，年龄，性别。<br>    那么这些就称为表的字段。<br>    关系型数据库，是由一张一张有关系的表组成的<br>    3.安装MySQL<br>        先安装MySQL服务器<br>           数据库是创建在服务器上的<br>        在安装MySQL客户端<br>           用于连接上MySQL服务器，进而对MySQL服务器进行操作，比较常用的客户端有Navicat  SQLyog<br>    4.SQL语句的学习<br>    1.创建语句<br>      1.1创建数据库<br>        create database 库名；<br>    1.2创建表<br>      create table 表名(字段名1 数据类型 约束,字段名2 数据类型 约束,字段名3 数据类型)</p><pre><code>数据类型: 常用的数据类型:    int    整型数据,占四个字节大小    char    字符串数据,需要设置占用的字节个数,是一个固定长度的数据类型    varchar    字符串数据,需要设置占用的字节个数,是一个可变长度的数据类型    可变长度意思是:内容是多少就占多少字节,而不是占用自己设置的字节个数    float    小数占用四个字节    2.插入语句        insert into 表明(字段名1,字段名2,) values(数据1,数据2)    3.查询语句        select 字段名1,字段名2 .....from 表名    4.删除语句        删除库            drop database 库名;        删除表            drop table 表名;        删除表中的所有数据            delete  from 表名;        删除表中的某些数据            delete from 表名 where.......    5.修改语句        update 表名 set 修改的内容 where 标识符    4.2. 修改表的定义的语句      #修改表的名字         alter TABLE 旧表名 rename 新表名      #修改数据类型        alter table 表名 modify 列名 数据类型      #修改列名        alter table 表名 change 旧列名 新列名      #删除列        alter table 表名 drop 列名      #添加列        alter table 表名 add 新列名 数据类型    4.3 约束      主键约束(primary key)        主键: 一行记录唯一的标识          非空,不允许重复      非空约束(not null)      唯一约束(unique)        不允许重复,可以为null,但null也不允许重复        default 设置默认值      check约束      外键约束(foreign key)        外键:本张表中的一个字段数据,引用的是另外一张表的主键数据那么此字段就称为本章表的外键        例如:成绩表与学生信息表,两张表都会用到学生学号,并且学生学号是学生信息表的主键,但成绩表中的学号引用的是学生信息表中的学号,那么学号在成绩表中就称为外键数据库创建的三大范式：    第一范式：      每个字段的数据都是不可分割的最小的数据单元    第二范式：      每张表只能描述一件事情，每张表必须有主键    第三范式：      非主键字段依赖与主键字段，换句话说非主键字段与主键字段要直接相关    注意：设计表时，尽可能遵守规范，但是，有时为了性能，会牺牲一点规范</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>#MySQL第五次课<br>    数据库的优化与实务<br>    数据库优化的作用<br>        通过优化提高查询效率<br>    如何优化：<br>        其中一项内容就是添加索引<br>        索引于为表中某个字段或某几个字段添加一个目录<br>    索引的分类<br>        普通索引<br>        唯一索引<br>            添加唯一约束会默认谈价唯一索引<br>        主键索引<br>            添加主键约束会默认添加主键索引<br>        组合索引<br>        全文索引<br>        空间索引<br>    注意：索引不是越多越好，经常用来查询的字段作为索引</p><pre><code>事务    几条语句组成一个整体，要么全部成功，要么全部失败，这几条语句放到一块就称为一个事务    其实每条语句都是一个自动提交的事务    1.关闭自动提交    2.开启事务 begin    3.执行语句 如果失败全部回滚 rollback    4.如果全部成功,提交事务commit事务的特性    原子性    事务是一个整体,要么全部成功要么全部失败    一致性    事务执行前后,数据的状态应该是一致的    隔离性    事务相互独立,互不相影响    永久性    事务一旦对数据进行更改造成的影响是永久的隔离级别    未提交读(read uncommitted)    已提交读(read committed)    可重复读(repeatable read)    可串行化(seriarizable)</code></pre>]]></content>
       
       
       
@@ -17,11 +17,50 @@
     
     
     <entry>
-      <title>test test</title>
-      <link href="/2019/10/14/test-test/"/>
-      <url>/2019/10/14/test-test/</url>
+      <title>Mysql第四课</title>
+      <link href="/2019/11/10/Mysql%E7%AC%AC%E5%9B%9B%E8%AF%BE/"/>
+      <url>/2019/11/10/Mysql%E7%AC%AC%E5%9B%9B%E8%AF%BE/</url>
       
-        <content type="html"><![CDATA[<h1 id="测试测试测试"><a href="#测试测试测试" class="headerlink" title="测试测试测试"></a>测试测试测试</h1>]]></content>
+        <content type="html"><![CDATA[<p>#Mysql第四次课<br>     truncate清空表<br>     truncate table 表名<br>     is  null 查询字段中为null的数据<br>     is not null 查询出字段中非空的数据<br>     name          name is not null<br>     张三<br>     null<br>     李四<br>     王五<br>     null</p><pre><code> 模糊查询    like    % 代表一个或多个字符    _ 代表一个字符 exists()存在    exists里边括住的是一个  查询语句,如果查询语句有结果，  外部查询就正常执行，如果没结果，  外部查询不执行  not exists */SELECT * FROM course               WHERE cnam IS NOT NULL#模糊查询#查询出姓名中包含“三”#学生的信息SELECT * FROM studentinfo WHERE                  snam LIKE &apos;%三%&apos;;#查询出姓周的同学信息SELECT * FROM studentinfo WHERE                  snam LIKE &apos;周%&apos;;#如果有安阳市的学生，就把#本班所有学生的信息查询#出来SELECT * FROM studentinfo WHERE    EXISTS(      SELECT * FROM studentinfo WHERE               address LIKE &apos;%许昌%&apos;)</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql第三课</title>
+      <link href="/2019/11/10/Mysql%E7%AC%AC%E4%B8%89%E8%AF%BE/"/>
+      <url>/2019/11/10/Mysql%E7%AC%AC%E4%B8%89%E8%AF%BE/</url>
+      
+        <content type="html"><![CDATA[<p>#MySQL第三次课<br>        order by 排序<br>        grounp by  分组<br>        group by……having……. 筛选出来符合条件的数据<br>    子查询<br>        查询语句里面嵌套查询语句子查询的结果作为了外部查询的条件<br>    链接        把多张表连接成一张表,一般连接的表有主外键关系<br>        普通链接    必须写连接条件</p><pre><code>内连接inner join...on...inner join连接两张表on后面是连接条件外连接：  左连接left join...on...左边那张表数据全部显示右边那张表只显示匹配上的数据  右连接right join...on...右边那张表数据全部显示左边那张表只显示匹配上的数据全连接</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql第二课</title>
+      <link href="/2019/11/10/Mysql%E7%AC%AC%E4%BA%8C%E8%AF%BE/"/>
+      <url>/2019/11/10/Mysql%E7%AC%AC%E4%BA%8C%E8%AF%BE/</url>
+      
+        <content type="html"><![CDATA[<p>#MySQL第二次课<br>    MySQL运算符<br>        算数运算符<br>          + - * /<br>        比较运算符<br>          &gt; &lt; &gt;= &lt;= !=<br>        逻辑运算符<br>          and  or<br>    聚合函数<br>        count()    求行数<br>        sum()     求一列的和<br>        avg()    求平均数<br>        max()    求最大值<br>        min()    求最小值<br>    MySQL需要记住的关键字<br>        in        查询….范围里的数据<br>                name in ‘张三’,’李四’;<br>                name等于张三与name等于李四的数据,全部查询出来<br>        not in<br>                name not in ‘张三’,’李四’;<br>                除了name等于张三与name等于李四的数据,全部查询出来<br>        is null<br>        is not null<br>        limit        查询表中的前几行<br>                limit 0,2;   从0下标开始向后查询两行<br>        distinct        去掉每个字段或某几个字段重复的数据<br>        as        给字段取别名<br>        union        查询两张表的并集<br>        between….and…    查询……范围之间的数据</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql第一课</title>
+      <link href="/2019/11/10/Mysql%E7%AC%AC%E4%B8%80%E8%AF%BE/"/>
+      <url>/2019/11/10/Mysql%E7%AC%AC%E4%B8%80%E8%AF%BE/</url>
+      
+        <content type="html"><![CDATA[<p>#MySQL数据库第一课<br>    0.数据库的分类<br>        关系型数据库<br>           SQLserver  MySQL  Oracle<br>        非关系型数据库<br>           Redis<br>    1.什么是数据库<br>    用来存储数据的仓库，数据库由一张一张的表组成，真正存储数据的地方为表<br>    2.什么是表<br>    表由行和列组成<br>    行在数据库里称为纪录<br>    列称为字段或属性<br>    例如：学生表，表里应该有学生的学号，姓名，身份证号，年龄，性别。<br>    那么这些就称为表的字段。<br>    关系型数据库，是由一张一张有关系的表组成的<br>    3.安装MySQL<br>        先安装MySQL服务器<br>           数据库是创建在服务器上的<br>        在安装MySQL客户端<br>           用于连接上MySQL服务器，进而对MySQL服务器进行操作，比较常用的客户端有Navicat  SQLyog<br>    4.SQL语句的学习<br>    1.创建语句<br>      1.1创建数据库<br>        create database 库名；<br>    1.2创建表<br>      create table 表名(字段名1 数据类型 约束,字段名2 数据类型 约束,字段名3 数据类型)</p><pre><code>数据类型: 常用的数据类型:    int    整型数据,占四个字节大小    char    字符串数据,需要设置占用的字节个数,是一个固定长度的数据类型    varchar    字符串数据,需要设置占用的字节个数,是一个可变长度的数据类型    可变长度意思是:内容是多少就占多少字节,而不是占用自己设置的字节个数    float    小数占用四个字节    2.插入语句        insert into 表明(字段名1,字段名2,) values(数据1,数据2)    3.查询语句        select 字段名1,字段名2 .....from 表名    4.删除语句        删除库            drop database 库名;        删除表            drop table 表名;        删除表中的所有数据            delete  from 表名;        删除表中的某些数据            delete from 表名 where.......    5.修改语句        update 表名 set 修改的内容 where 标识符    4.2. 修改表的定义的语句      #修改表的名字         alter TABLE 旧表名 rename 新表名      #修改数据类型        alter table 表名 modify 列名 数据类型      #修改列名        alter table 表名 change 旧列名 新列名      #删除列        alter table 表名 drop 列名      #添加列        alter table 表名 add 新列名 数据类型    4.3 约束      主键约束(primary key)        主键: 一行记录唯一的标识          非空,不允许重复      非空约束(not null)      唯一约束(unique)        不允许重复,可以为null,但null也不允许重复        default 设置默认值      check约束      外键约束(foreign key)        外键:本张表中的一个字段数据,引用的是另外一张表的主键数据那么此字段就称为本章表的外键        例如:成绩表与学生信息表,两张表都会用到学生学号,并且学生学号是学生信息表的主键,但成绩表中的学号引用的是学生信息表中的学号,那么学号在成绩表中就称为外键数据库创建的三大范式：    第一范式：      每个字段的数据都是不可分割的最小的数据单元    第二范式：      每张表只能描述一件事情，每张表必须有主键    第三范式：      非主键字段依赖与主键字段，换句话说非主键字段与主键字段要直接相关    注意：设计表时，尽可能遵守规范，但是，有时为了性能，会牺牲一点规范</code></pre>]]></content>
       
       
       
